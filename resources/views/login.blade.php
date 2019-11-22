@@ -1,4 +1,4 @@
-@include('view.header') 
+@include('header')
 <html>
     <body>
         <div class="container">
@@ -7,7 +7,7 @@
                     <div>
                         <h3> Login here.. </h3>
                     </div>
-                    <form method="post" action="login">
+                    <form method="post" action="login/post">
                         <input type = "hidden" name = "_token" value = "<?php echo csrf_token(); ?>">
 
                         <div class="form-group">

@@ -14,9 +14,6 @@
 Route::get('/', function () {
     return view('welcome');
 });
-//Route::get('/home', function () {
-//    return view('home');
-//});
 
 Route::get('/home', [
     'uses' => 'HomeController@index'
@@ -42,5 +39,20 @@ Route::get('/login', function() {
     return view('login');
 });
 
+Route::post('login/post', "LoginController@login");
+
 
 Route::post('/register/create', 'RegisterController@create');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+
+Route::post('/task/save', 'TaskController@save');
+
+Route::get('/task/delete/{id}', 'TaskController@delete')->name('home');
+
+Route::get('/task/status/{id}', 'TaskController@status');
+Route::get('/task/update/{id}', 'TaskController@updateGet');
+Route::post('/task/update/{id}', 'TaskController@updatePost');

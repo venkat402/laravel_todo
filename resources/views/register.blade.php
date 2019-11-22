@@ -1,8 +1,5 @@
+@include('header')
 <html>
-    <header>
-        <link rel="stylesheet" href="/css/app.css">
-
-    </header>
     <body>
         <div class="container">
             <div class="row">
@@ -10,6 +7,18 @@
                     <div>
                         <h3> Register here.. </h3>
                     </div>
+                    @if(count($errors))
+                    <div class="form-group">
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach($errors->all() as $error)
+                                <li>{{$error}}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    </div>
+                    @endif
+
                     <form method="post" action="register/create">
                         <input type = "hidden" name = "_token" value = "<?php echo csrf_token(); ?>">
 
